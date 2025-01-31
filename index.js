@@ -47,7 +47,7 @@ app.post('/students/above-threshold', (req, res) => {
   const {threshold} = req.body;
 
   if(typeof threshold !== "number" || threshold<0){
-    return res.status(400).json({Error:"In valid thersold value. I t must be a positive integer"})
+    return res.status(400).json({Error:"In valid thersold value. It must be a positive integer"})
   }
 
   fs.readFile("data.json","utf8",(err,data)=>{
@@ -61,7 +61,7 @@ app.post('/students/above-threshold', (req, res) => {
     .map(student => ({ name: student.name, total: student.total }));
 
     res.json({
-      count : filteredStudents.lenght,
+      count: filteredStudents.length,
       students: filteredStudents
     })
   })
